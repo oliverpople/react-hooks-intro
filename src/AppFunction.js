@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const App = () => {
   const [count, setCount] = useState(0);
   const [isOn, setIsOn] = useState(false);
+
+  useEffect(() => {
+    document.title = `You have clicked ${count} times`;
+  });
 
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
@@ -15,7 +19,7 @@ const App = () => {
   return (
     <>
       <h2>Counter</h2>
-      <button onClick={incrementCount}>I was clicked {count} times</button>;
+      <button onClick={incrementCount}>I was clicked {count} times</button>
       <h2>Toggle light</h2>
       <img
         src={
